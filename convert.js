@@ -102,11 +102,11 @@ function buildBaseLists({ landing, lowCost, countryGroupNames }) {
 
     // “选择节点”组的候选列表
     const defaultSelector = buildList(
+        PROXY_GROUPS.MANUAL,
         PROXY_GROUPS.FALLBACK,
         landing && PROXY_GROUPS.LANDING,
         countryGroupNames,
         lowCost && PROXY_GROUPS.LOW_COST,
-        PROXY_GROUPS.MANUAL,
         "DIRECT"
     );
 
@@ -663,7 +663,9 @@ function buildProxyGroups({
             "name": "SSH(22端口)",
             "icon": "https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Server.png",
             "type": "select",
-            "proxies": defaultProxies
+            "proxies": [ 
+                "DIRECT", PROXY_GROUPS.SELECT
+            ]
         },
         {
             "name": "搜狗输入法",
